@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkedu - AI Innovations</title>
+    <link rel="icon" type="image/x-icon" href="assets/pngwing.com.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        @keyframes gradientText {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes pulseScale {
+            0% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+        
+        .dropbtn {
+            background-color: transparent;
+            color: transparent;
+            border: none;
+            padding: 14px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            background-image: linear-gradient(90deg, #ff0000, #0000ff, #ff0000);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradientText 5s infinite linear, pulseScale 2s infinite ease-in-out;
+            display: inline-block;
+            font-weight: bold;
+        }
+        
+        .dropdown:hover .dropbtn {
+            animation-play-state: paused;
+        }
+        
+        /* Update the existing dropdown-content styles to match the animation */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(26, 26, 26, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(107, 138, 253, 0.2);
+            color: #6b8afd;
+        }
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: #1a1a1a;
+            z-index: 1;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 26, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a.active {
+            color: #6b8afd;
+        }
+
+        .nav-links a:hover {
+            color: #6b8afd;
+        }
+
+        .dropbtn:hover {
+            color: #6b8afd;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: 'Poppins';
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #888;
+            max-width: 600px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 4rem 0;
+            color: #fff;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #888;
+        }
+
+        .testimonials {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial p {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color:linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            border: none;
+            padding: 14px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./images/logo1.png" alt="Logo" style="width:200px; height:65px;">
+        </div>
+        <div class="nav-links">
+            <a href="./index.html" class="active">HOME</a>
+            <div class="dropdown">
+                <button class="dropbtn">PROJECTS</button>
+                <div class="dropdown-content">
+                    <a href="project1.html">ShotGPT</a>
+                    <a href="project2.html">Chat With pdf's</a>
+                    <a href="project3.html">LinkedIn Bot</a>
+                </div>
+            </div>
+            <a href="./about.html">ABOUT</a>
+            <a href="./contact.html">CONTACT</a>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <h1>Linkedu..!</h1>
+        <p>Connecting Minds with AI Innovations</p>
+    </section>
+
+    <h2 class="section-title">Why AI?</h2>
+
+    <div class="cards-container">
+        <div class="card">
+            <img src="./images/mullu.jpg" alt="AI Workflow">
+            <h3>Revolutionize Your Workflow with AI</h3>
+            <p>At Linked.ai, we offer a variety of cutting-edge AI products that are designed to enhance your productivity and efficiency. Whether you're a small business owner or a tech enthusiast, our AI solutions are tailored to meet your needs.</p>
+        </div>
+
+        <div class="card">
+            <img src="./images/neuralnetwork.gif" alt="AI Innovation">
+            <h3>How can AI drive innovation?</h3>
+            <p>With our AI products, you can stay ahead of the curve and leverage the power of artificial intelligence to drive innovation in your business. Explore our diverse range of AI solutions and unlock new possibilities.</p>
+        </div>
+
+        <div class="card">
+            <img src="./images/round.gif" alt="AI Tools">
+            <h3>The Rise of AI-Powered Tool</h3>
+            <p>AI tools are reshaping various business operations, from automating mundane tasks to enhancing decision-making processes. It will highlight specific AI products and platforms that are leading the transformation.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Why Choose Linkedu.ai?</h2>
+
+    <div class="testimonials">
+        <div class="testimonial">
+            <p>❝ Our AI products stand out for their user-centric design, balanced precision, and unmatched scalability. We prioritize a seamless user experience by building intuitive interfaces, ensuring that complex AI solutions remain accessible and adaptable to individual needs.</p>
+        </div>
+
+        <div class="testimonial">
+            <p>❝ Personalization is a powerful tool for keeping customers engaged, and AI can help deliver targeted, individualized experiences at scale. This question explores how businesses can leverage AI to analyze customer preferences and behaviors.</p>
+        </div>
+
+        <div class="testimonial">
+            <p>❝ AI isn't one-size fits all, but it has wide applications across various industries. This question delves into how AI is transforming sectors like finance, healthcare, retail, manufacturing, and customer service.</p>
+        </div>
+    </div>
+
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#4169E1'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#4169E1',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Scroll effect for navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.9)';
+            }
+        });
+    </script>
+    
+    <footer>
+        <p>© 2024 linkedu.ai</p>
+        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1255406/t/5"></script>
+    </footer>
+    <a href='https://www.free-counters.org/'>@Linkedu.ai</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=ddcb58ea32e9eb55fdece7c46152e3569fa8a0b9'></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkedu - AI Solutions</title>
+    <link rel="icon" type="image/x-icon" href="assets/pngwing.com.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        @keyframes gradientText {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes pulseScale {
+            0% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+        
+        .dropbtn {
+            background-color: transparent;
+            color: transparent;
+            border: none;
+            padding: 14px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            background-image: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradientText 5s infinite linear, pulseScale 2s infinite ease-in-out;
+            display: inline-block;
+            font-weight: bold;
+        }
+        
+        .dropdown:hover .dropbtn {
+            animation-play-state: paused;
+        }
+        
+        /* Update the existing dropdown-content styles to match the animation */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(26, 26, 26, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(107, 138, 253, 0.2);
+            color: #6b8afd;
+        }
+        body {
+            background: linear-gradient(to bottom, #dd5e41, #fab5a6);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 26, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e85d3d;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a.active {
+            color: #e85d3d;
+        }
+        
+        .nav-links a:hover {
+            color: #e85d3d;
+        }
+        
+        .dropbtn:hover {
+            color: #e85d3d;
+        }
+
+        .about-section {
+            position: relative;
+            padding: 60px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .about-content {
+            max-width: 500px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .value-section {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        .value-image {
+            flex: 1;
+            background: black;
+            padding: 4px;
+        }
+
+        .value-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .value-content {
+            flex: 1;
+        }
+
+        .newsletter-section {
+            padding: 60px 0;
+        }
+
+        .email-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            border: none;
+            padding: 14px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            background: rgba(26, 26, 26, 0.9);
+        }
+        .footer-content a{
+            color: white;
+        }
+        .footer-content a:hover{
+            color: #e85d3d;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+            }
+
+            .about-section,
+            .value-section {
+                flex-direction: column;
+            }
+            .value-content {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./images/logo1.png" alt="Logo" style="width:200px; height:65px;">
+        </div>
+        <div class="nav-links">
+            <a href="./index.html">HOME</a>        
+            <div class="dropdown">
+                <button class="dropbtn">PROJECTS</button>
+                <div class="dropdown-content">
+                    <a href="project1.html">ShotGPT</a>
+                    <a href="project2.html">Chat With pdf's</a>
+                    <a href="project3.html">LinkedIn Bot</a>
+                </div>
+            </div>
+    
+            <a href="./about.html" class="active">ABOUT</a>
+            <a href="./contact.html">CONTACT</a>
+        </div>
+    </nav>
+    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <main class="container">
+        <section class="about-section">
+            <div class="about-content">
+                <h2>About me</h2>
+                <p>It all began with a simple idea fueled by a deep passion. As a small business, we pride ourselves on personal attention and dedication to every detail. Our approach is rooted in quality and integrity, ensuring that everything we do reflects our commitment to excellence.</p>
+                <div class="buttons">
+                    <a href="https://www.linkedin.com/in/hemanth99599/" class="button">LinkedIn</a>
+                    <a href="https://github.com/hemanthreddykunduru" class="button">GitHub</a>
+                </div>
+                <br/>
+                <br/>
+                <h3>Creating Next-Gen Games with Unreal Engine</h3>
+                <br/>
+                <p>am an Unreal Engine game developer passionate about creating immersive experiences with cutting-edge graphics, realistic physics, and dynamic gameplay. I specialize in AI-driven mechanics, high-quality environments, and interactive storytelling to push the boundaries of gaming.</p>
+                <div class="buttons">
+                    <a href="https://hemanthreddykunduru.github.io/gamerz/index.html" class="button">Gamerz</a>
+                </div>
+            </div>
+            <div class="ai-illustration">
+                <img src="./images/ai_img.png" alt="Ai im" style="width:350px; height:350px;">
+            </div>
+        </section>
+
+        <section class="value-section">
+            <div class="value-image">
+                <img src="./images/chinna_mullu.jpg" alt="Abstract visualization">
+            </div>
+            <div class="value-content">
+                <h2>Always adding value!</h2>
+                <p>This is where our journey begins. Get to know our business and what we do, and how we're committed to quality and great service. Join us as we grow and succeed together. We're glad you're here to be a part of our story.</p>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <h2>Stay Ahead with Linkedu</h2>
+            <p>Stay up to date with the latest news and updates from Linkedu. Join our newsletter and never miss a beat!</p>
+            <div class="pubble-app" data-app-id="1234" data-app-identifier="1234"
+            data-user-name="${user.name}" data-user-email="${user.email}" data-user-type="Lead"></div>
+            <script type="text/javascript" src="https://cdn.pubble.io/javascript/loader.js" defer></script>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div>© 2024 linkedu.ai</div>
+                <br/>
+                <div class="social-links">
+                    <a href="https://x.com/"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+                    <a href="https://www.instagram.com/hemanth_dec31/"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg></a>
+                    <a href="https://www.linkedin.com/in/hemanth99599/"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>

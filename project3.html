@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Job Application Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            color: white;
+            text-align: center;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .back-button:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .demo-section {
+            margin: 40px 0;
+        }
+
+        .demo-gif {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .uses-section {
+            margin: 40px 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .uses-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .uses-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .uses-section li {
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .uses-section li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #23d5ab;
+            font-size: 1.5em;
+        }
+
+        .download-section {
+            margin: 50px 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #e73c7e, #23a6d5);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="history.back()">🔙</button>
+    <div class="container">
+        <header class="header">
+            <h1>Automated Job Application Tool</h1>
+            <p>Find, match, and apply for jobs on LinkedIn intelligently with a 90% shortlisting success rate!</p>
+        </header>
+        
+        <section class="features">
+            <div class="feature-card">
+                <h3>Intelligent Matching</h3>
+                <p>Advanced algorithms ensure applications are sent only to positions matching your skills and experience.</p>
+            </div>
+            <div class="feature-card">
+                <h3>High-Speed Applications</h3>
+                <p>Apply to up to 100 positions per hour while maintaining application quality.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Custom Filtering</h3>
+                <p>Set specific criteria for job titles, locations, and companies to target your ideal positions.</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>Time-Saving</h3>
+                <p>Automates repetitive tasks, allowing you to focus on interviews and networking.</p>
+            </div>
+            <div class="feature-card">
+                <h3>AI-Powered Cover Letters</h3>
+                <p>Generates customized cover letters tailored to each job posting.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Easy Setup</h3>
+                <p>User-friendly interface with simple configuration for quick deployment.</p>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2>How It Works</h2>
+            <br>
+            <img src="./images/project3/linkedin.gif" class="demo-gif" alt="Demo of the job application tool">
+        </section>
+
+        <section class="uses-section">
+            <h2>Why Use This Tool?</h2>
+            <ul>
+                <li>&nbsp;Automates job applications efficiently</li>
+                <li>&nbsp;Intelligently matches jobs with your profile</li>
+                <li>&nbsp;Customizes applications to maximize shortlisting</li>
+                <li>&nbsp;Saves hours of manual job searching</li>
+                <li>&nbsp;Ensures personalized applications for each job</li>
+                <li>&nbsp;Secure and private – runs locally on your device</li>
+            </ul>
+        </section>
+
+        <section class="download-section">
+            <a href="https://1024terabox.com/s/1XYDGb1gb1OgCZJi_vYhdMQ" class="download-button">Download Bot</a>
+        </section>
+    </div>
+</body>
+</html>
