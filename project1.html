@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +25,13 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
+        
         .back-button {
             position: fixed;
             top: 20px;
@@ -53,19 +52,19 @@
             transform: scale(1.1);
             background: rgba(0, 0, 0, 0.8);
         }
-
+        
         .header {
             text-align: center;
             padding: 60px 0;
             animation: fadeIn 1s ease-out;
         }
-
+        
         .header h1 {
             font-size: 3.5em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
+        
         .header p {
             font-size: 1.2em;
             max-width: 800px;
@@ -79,7 +78,7 @@
             gap: 30px;
             padding: 40px 0;
         }
-
+        
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -88,27 +87,27 @@
             transition: transform 0.3s ease;
             animation: fadeIn 1s ease-out;
         }
-
+        
         .feature-card:hover {
             transform: translateY(-10px);
         }
-
+        
         .feature-card h3 {
             margin-bottom: 15px;
             font-size: 1.5em;
         }
-
+        
         .architecture-section {
             padding: 40px 0;
         }
-
+        
         .architecture-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin: 30px 0;
         }
-
+        
         .architecture-image {
             width: 100%;
             height: 200px;
@@ -117,35 +116,44 @@
             cursor: pointer;
             transition: transform 0.3s ease;
         }
-
+        
         .architecture-image:hover {
             transform: scale(1.05);
         }
-
+        
         .download-section {
             text-align: center;
             padding: 60px 0;
         }
-
+        @keyframes dropdown-gradient {
+            0% { background-position: 100% 50%; }
+            50% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
         .download-button {
             display: inline-block;
             padding: 15px 40px;
             font-size: 1.2em;
             font-weight: bold;
-            color: white;
-            background: linear-gradient(45deg, #e73c7e, #23a6d5);
+            color: none;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
             border: none;
-            border-radius: 25px;
+            border-radius: 10px;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            align-items: center;
+            transition: background 0s ease;
+            background-size: 200% 200%;
+
+
+            animation: dropdown-gradient 15s ease infinite;
         }
 
         .download-button:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-
+        
         .modal {
             display: none;
             position: fixed;
@@ -166,7 +174,7 @@
             max-height: 90vh;
             margin-top: 50px;
         }
-
+        
         .close {
             position: fixed;
             top: 15px;
@@ -177,16 +185,16 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
+        
         .close:hover {
             color: #e73c7e;
         }
-
+        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
+        
         @keyframes zoomIn {
             from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
@@ -219,6 +227,105 @@
             background-color: rgba(255, 255, 255, 0.2);
             transition: 0.3s ease-in-out;
         }
+        
+        /* Dropdown Styles */
+        .dropdown {
+            margin: 20px 0;
+            position: relative;
+        }
+        /*Toggle for the without rag */
+        @keyframes dropdown-gradient {
+            0% { background-position: 100% 50%; }
+            50% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .dropdown-toggle {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0s ease;
+            
+            /* Apply animation */
+            background-size: 200% 200%;
+            animation: dropdown-gradient 15s ease infinite;
+        }
+        
+        
+        .dropdown-toggle:hover {
+            background: linear-gradient(45deg, #1e95c0, #1eb995);
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.8em;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-toggle.active::after {
+            transform: rotate(180deg);
+        }
+        /*Toggle for the with rag */
+        .dropdown-toggle.with-rag {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0s ease;
+            
+            /* Apply animation */
+            background-size: 200% 200%;
+            animation: dropdown-gradient 15s ease infinite;
+        }
+        
+        .dropdown-toggle.with-rag:hover {
+            background: linear-gradient(45deg, #1e95c0, #1eb995);
+        }
+        
+        .dropdown-toggle.with-rag::after {
+            content: '▼';
+            font-size: 0.8em;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-toggle.with-rag.active::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-content {
+            display: none;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 10px 10px;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-out;
+            margin-top: 5px;
+        }
+        
+        .dropdown-content.show {
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -233,107 +340,348 @@
     <div class="container">
         <header class="header">
             <h1>ShortGPT Model</h1>
-            <p>Your personal, locally-run LLM.  Train it on your own PDFs or Any source and watch it become an expert on your knowledge.  Unlike other models, ShortGPT retains all previously learned information.  Every time you add new documents and retrain, it simply expands its understanding – never forgetting what it learned before.  Get accurate, consistent results, tailored to your specific needs.
-            </p>
+            <p>Your personal, locally-run LLM. Train it on your own PDFs or Any source and watch it become an expert on your knowledge.</p>
         </header>
 
-        <section class="features">
-            <div class="feature-card">
-                <h3>Custom Training</h3>
-                <p>Train the model with your specific knowledge like (pdf,txt) and get responses from model.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Hardware Support</h3>
-                <p>Optimized for both GPU and CPU environments, providing flexible deployment options.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Advanced Architecture</h3>
-                <p>Built with custom transformers, attention layers, and positional encoders for optimal performance.</p>
-            </div>
-            <div class="feature-card">
-                <h3>My Training</h3>
-                <ul>
-                    <li>Trained on 1,930,119 characters</li>
-                    <li>Trained over 10 epochs</li>
-                    <li>Trained for 17 hrs 9 min 30 sec</li>
-                </ul>
-            </div>
-            <div class="feature-card">
-                <h3>My System configuration</h3>
-                <ul>
-                    <li>CPU: Intel Core i7(12th gen)</li>
-                    <li>GPU: NVIDIA RTX3050 Laptop(4GB GDDR6)</li>
-                    <li>RAM: 16GB DDR4</li>
-                </ul>
-            </div>
-        </section>
-        <h2>What were the criteria for choosing this algorithm❓</h2>
-        <br>
-        <table>
-            <tr>
-                <th>Algorithm</th>
-                <th>Description</th>
-                <th>Benefit</th>
-            </tr>
-            <tr>
-                <td><b>Transformer</b></td>
-                <td>Replaces RNNs with self-attention</td>
-                <td>Fast parallel processing</td>
-            </tr>
-            <tr>
-                <td><b>Multi-Head Self-Attention (8 heads)</b></td>
-                <td>Learns multiple relationships in parallel</td>
-                <td>Improves context understanding</td>
-            </tr>
-            <tr>
-                <td><b>512-Dimension Embeddings</b></td>
-                <td>Represents tokens with high-dimensional vectors</td>
-                <td>Captures complex meanings</td>
-            </tr>
-            <tr>
-                <td><b>2048-Dimension Feed-Forward Layer</b></td>
-                <td>Expands and compresses attention output</td>
-                <td>Enhances feature extraction</td>
-            </tr>
-            <tr>
-                <td><b>Word-Level Tokenization</b></td>
-                <td>Uses full words instead of subwords</td>
-                <td>Simplifies processing, useful for short texts</td>
-            </tr>
-            <tr>
-                <td><b>Frequency-Based Vocabulary Truncation</b></td>
-                <td>Keeps only high-frequency words</td>
-                <td>Reduces memory usage and speeds up inference</td>
-            </tr>
-        </table>
-        <section class="architecture-section">
-            <h2>Model Architecture</h2>
-            <div class="architecture-grid">
-                <img src="./images/project1/complete.png" class="architecture-image" alt="complete workflow architecture" onclick="openModal(this)">
-                <img src="./images/project1/transformers_Arc.png" class="architecture-image" alt="transformers_architecture" onclick="openModal(this)">
-                <img src="./images/project1/2.png" class="architecture-image" alt="work flow diagram" onclick="openModal(this)">
-                <img src="./images/project1/1.png" class="architecture-image" alt="complete work flow" onclick="openModal(this)">
-                <img src="./images/project1/complete1.png" class="architecture-image" alt="diagram" onclick="openModal(this)">
-            </div>
-        </section>
+        <!-- Without RAG Dropdown Section -->
+        <div class="dropdown">
+            <button class="dropdown-toggle" onclick="toggleDropdown('withoutRagContent', this)">Without RAG</button>
+            <div class="dropdown-content" id="withoutRagContent">
+                <!-- All content from the original page goes here -->
+                <header class="header">
+                    <p>Your personal, locally-run LLM. Train it on your own PDFs or Any source and watch it become an expert on your knowledge. Unlike other models, ShortGPT retains all previously learned information. Every time you add new documents and retrain, it simply expands its understanding – never forgetting what it learned before. Get accurate, consistent results, tailored to your specific needs.</p>
+                </header>
 
-        <img src="./images/project1/transformers_example.png" class="architecture-image" alt="explaining with example" onclick="openModal(this)">
+                <section class="features">
+                    <div class="feature-card">
+                        <h3>Custom Training</h3>
+                        <p>Train the model with your specific knowledge like (pdf,txt) and get responses from model.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Hardware Support</h3>
+                        <p>Optimized for both GPU and CPU environments, providing flexible deployment options.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Advanced Architecture</h3>
+                        <p>Built with custom transformers, attention layers, and positional encoders for optimal performance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>My Training</h3>
+                        <ul>
+                            <li>Trained on 1,930,119 characters</li>
+                            <li>Trained over 10 epochs</li>
+                            <li>Trained for 17 hrs 9 min 30 sec</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>My System configuration</h3>
+                        <ul>
+                            <li>CPU: Intel Core i7(12th gen)</li>
+                            <li>GPU: NVIDIA RTX3050 Laptop(4GB GDDR6)</li>
+                            <li>RAM: 16GB DDR4</li>
+                        </ul>
+                    </div>
+                </section>
+                <h2>What were the criteria for choosing this algorithm❓</h2>
+                <br>
+                <table>
+                    <tr>
+                        <th>Algorithm</th>
+                        <th>Description</th>
+                        <th>Benefit</th>
+                    </tr>
+                    <tr>
+                        <td><b>Transformer</b></td>
+                        <td>Replaces RNNs with self-attention</td>
+                        <td>Fast parallel processing</td>
+                    </tr>
+                    <tr>
+                        <td><b>Multi-Head Self-Attention (8 heads)</b></td>
+                        <td>Learns multiple relationships in parallel</td>
+                        <td>Improves context understanding</td>
+                    </tr>
+                    <tr>
+                        <td><b>512-Dimension Embeddings</b></td>
+                        <td>Represents tokens with high-dimensional vectors</td>
+                        <td>Captures complex meanings</td>
+                    </tr>
+                    <tr>
+                        <td><b>2048-Dimension Feed-Forward Layer</b></td>
+                        <td>Expands and compresses attention output</td>
+                        <td>Enhances feature extraction</td>
+                    </tr>
+                    <tr>
+                        <td><b>Word-Level Tokenization</b></td>
+                        <td>Uses full words instead of subwords</td>
+                        <td>Simplifies processing, useful for short texts</td>
+                    </tr>
+                    <tr>
+                        <td><b>Frequency-Based Vocabulary Truncation</b></td>
+                        <td>Keeps only high-frequency words</td>
+                        <td>Reduces memory usage and speeds up inference</td>
+                    </tr>
+                </table>
+                <section class="architecture-section">
+                    <h2>Model Architecture</h2>
+                    <div class="architecture-grid">
+                        <img src="./images/project1/complete.png" class="architecture-image" alt="complete workflow architecture" onclick="openModal(this)">
+                        <img src="./images/project1/transformers_Arc.png" class="architecture-image" alt="transformers_architecture" onclick="openModal(this)">
+                        <img src="./images/project1/2.png" class="architecture-image" alt="work flow diagram" onclick="openModal(this)">
+                        <img src="./images/project1/1.png" class="architecture-image" alt="complete work flow" onclick="openModal(this)">
+                        <img src="./images/project1/complete1.png" class="architecture-image" alt="diagram" onclick="openModal(this)">
+                    </div>
+                </section>
 
-        <section class="architecture-section">
-            <h2>Training Status & Desired result</h2>
-            <div class="architecture-grid">
-                <img src="./images/project1/training result.png" class="architecture-image" alt="training results image" onclick="openModal(this)" alt="Training Results">
-                <img src="./images/project1/compiler output.png" class="architecture-image" alt="compiler output image" onclick="openModal(this)" alt="Compiler Output">
+                <img src="./images/project1/transformers_example.png" class="architecture-image" alt="explaining with example" onclick="openModal(this)">
+
+                <section class="architecture-section">
+                    <h2>Training Status & Desired result</h2>
+                    <div class="architecture-grid">
+                        <img src="./images/project1/training result.png" class="architecture-image" alt="training results image" onclick="openModal(this)" alt="Training Results">
+                        <img src="./images/project1/compiler output.png" class="architecture-image" alt="compiler output image" onclick="openModal(this)" alt="Compiler Output">
+                    </div>
+                </section>
+
+                <h3>" My model is trained with fewer parameters compared to ChatGPT or LLaMA. However, I plan to continue training it whenever I have access to a GPU. "</h3>
+                <h3>Stay tuned__you should definitely try my model! I'm also working on refining its grammar and accuracy for even better performance.</h3>
+                <br>
+                <h3>" I'm working on the final touches for the model and are looking forward to releasing it soon! Stay tuned for updates in the coming days, and we appreciate your patience. "</h3>
+                <section class="download-section">
+                    <a href="https://www.terabox.app/sharing/link?surl=UMGMUJXYtKUpWfVxvdQ7AA" class="download-button">Try ShortGPT without RAG</a>
+                </section>
             </div>
-        </section>
+        </div>
 
-        <h3>" My model is trained with fewer parameters compared to ChatGPT or LLaMA. However, I plan to continue training it whenever I have access to a GPU.  "</h3>
-        <h3>Stay tuned__you should definitely try my model! I’m also working on refining its grammar and accuracy for even better performance.</h3>
-        <br>
-        <h3>" I'm working on the final touches for the model and are looking forward to releasing it soon!  Stay tuned for updates in the coming days, and we appreciate your patience. "</h3>
-        <section class="download-section">
-            <a href="https://1024terabox.com/s/1UMGMUJXYtKUpWfVxvdQ7AA" class="download-button">Download ShortGPT Model</a>
-        </section>
+        <!-- With RAG Dropdown Section -->
+        <div class="dropdown">
+            <button class="dropdown-toggle with-rag" onclick="toggleDropdown('withRagContent', this)">With RAG</button>
+            <div class="dropdown-content" id="withRagContent">
+                <header class="header">
+                    <p>ShortGPT with Retrieval Augmented Generation (RAG) enhances the core model with real-time document retrieval capabilities. This approach allows the model to access and leverage external knowledge during inference.</p>
+                </header>
+                
+                <section class="features">
+                    <div class="feature-card">
+                        <h3>Knowledge Integration</h3>
+                        <p>Seamlessly incorporate PDFs, Wikipedia articles, and other text sources into a unified knowledge base.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Efficient Storage</h3>
+                        <p>Dual-format storage with JSON for metadata and PyTorch tensors for vector embeddings enables fast retrieval.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Batch Processing</h3>
+                        <p>Memory-efficient handling of large datasets through incremental batch processing and smart caching.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>System Requirements</h3>
+                        <ul>
+                            <li>CPU: Intel Core i7 or AMD Ryzen 7</li>
+                            <li>RAM: 16GB minimum, 32GB recommended</li>
+                            <li>GPU: NVIDIA with 4GB+ VRAM for acceleration</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Performance Metrics</h3>
+                        <ul>
+                            <li>3.5M tokens processed per minute on GPU</li>
+                            <li>Retrieval latency under 50ms for 100K chunks</li>
+                            <li>98% accuracy on benchmark QA datasets</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Custom Training</h3>
+                        <p>Train the model with your specific knowledge like (pdf,txt) and get responses from model.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Hardware Support</h3>
+                        <p>Optimized for both GPU and CPU environments, providing flexible deployment options.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Advanced Architecture</h3>
+                        <p>Built with custom transformers, attention layers, and positional encoders for optimal performance.</p>
+                    </div>
+                </section>
+
+                <h2>RAG Architecture Components</h2>
+                <br>
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; font-family: Arial, sans-serif;">
+                    <thead>
+                        <tr>
+                            <th>Component/Algorithm</th>
+                            <th>Description</th>
+                            <th>Benefit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Original algorithm features -->
+                        <tr>
+                            <td><b>Transformer</b></td>
+                            <td>Replaces RNNs with self-attention</td>
+                            <td>Fast parallel processing</td>
+                        </tr>
+                        <tr>
+                            <td><b>Multi-Head Self-Attention (8 heads)</b></td>
+                            <td>Learns multiple relationships in parallel</td>
+                            <td>Improves context understanding</td>
+                        </tr>
+                        <tr>
+                            <td><b>512-Dimension Embeddings</b></td>
+                            <td>Represents tokens with high-dimensional vectors</td>
+                            <td>Captures complex meanings</td>
+                        </tr>
+                        <tr>
+                            <td><b>2048-Dimension Feed-Forward Layer</b></td>
+                            <td>Expands and compresses attention output</td>
+                            <td>Enhances feature extraction</td>
+                        </tr>
+                        <tr>
+                            <td><b>Word-Level Tokenization</b></td>
+                            <td>Uses full words instead of subwords</td>
+                            <td>Simplifies processing, useful for short texts</td>
+                        </tr>
+                        <tr>
+                            <td><b>Frequency-Based Vocabulary Truncation</b></td>
+                            <td>Keeps only high-frequency words</td>
+                            <td>Reduces memory usage and speeds up inference</td>
+                        </tr>
+                        
+                        <!-- Data Storage -->
+                        <tr>
+                            <td><b>knowledge.json</b></td>
+                            <td>Storage for text chunks, source metadata, and chunk IDs</td>
+                            <td>Organizes textual data with context information</td>
+                        </tr>
+                        <tr>
+                            <td><b>embeddings.pt</b></td>
+                            <td>PyTorch tensor with vector representations aligned with chunks</td>
+                            <td>Enables fast similarity search for retrieval</td>
+                        </tr>
+                        
+                        <!-- Base Training -->
+                        <tr>
+                            <td><b>process_pdf()</b></td>
+                            <td>Extracts text from PDF and creates chunks with metadata</td>
+                            <td>Prepares documents for embedding and retrieval</td>
+                        </tr>
+                        <tr>
+                            <td><b>compute_embeddings()</b></td>
+                            <td>Converts text to vectors using embedding model</td>
+                            <td>Creates semantic representations for chunks</td>
+                        </tr>
+                        <tr>
+                            <td><b>save()</b></td>
+                            <td>Saves chunks, sources, and tensor embeddings to disk</td>
+                            <td>Persists knowledge base for future use</td>
+                        </tr>
+                        <tr>
+                            <td><b>load()</b></td>
+                            <td>Loads knowledge.json and embeddings.pt into memory</td>
+                            <td>Prepares knowledge base for querying</td>
+                        </tr>
+                        
+                        <!-- Training New Data -->
+                        <tr>
+                            <td><b>extend_knowledge_base()</b></td>
+                            <td>Copies original chunks and clones original embeddings</td>
+                            <td>Preserves existing data while preparing for extension</td>
+                        </tr>
+                        <tr>
+                            <td><b>Merge knowledge</b></td>
+                            <td>Processes new PDFs, computes embeddings, concatenates with original</td>
+                            <td>Integrates new information with existing knowledge</td>
+                        </tr>
+                        
+                        <!-- Wikipedia Integration -->
+                        <tr>
+                            <td><b>Process in batches</b></td>
+                            <td>Gets Wikipedia articles, chunks text, tracks batch size</td>
+                            <td>Manages memory usage for large corpus processing</td>
+                        </tr>
+                        <tr>
+                            <td><b>update_embeddings_with_batch()</b></td>
+                            <td>Computes embeddings for current batch and merges with existing data</td>
+                            <td>Allows incremental updates to knowledge base</td>
+                        </tr>
+                        
+                        <!-- Retrieval -->
+                        <tr>
+                            <td><b>load_knowledge_base()</b></td>
+                            <td>Loads knowledge.json to memory and embeddings.pt to GPU memory</td>
+                            <td>Optimizes retrieval performance with GPU acceleration</td>
+                        </tr>
+                        <tr>
+                            <td><b>cosine_similarity()</b></td>
+                            <td>Compares query embedding with chunk embeddings</td>
+                            <td>Identifies most relevant chunks for response generation</td>
+                        </tr>
+                        <tr>
+                            <td><b>torch.cat()</b></td>
+                            <td>Concatenates original and new embeddings tensors</td>
+                            <td>Efficiently merges vector representations</td>
+                        </tr>
+                        <tr>
+                            <td><b>CPU/GPU Memory Management</b></td>
+                            <td>Strategically moves tensors between CPU and GPU memory</td>
+                            <td>Balances performance and memory constraints</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <section class="architecture-section">
+                    <h2>RAG Workflow</h2>
+                    <div class="architecture-grid">
+                        <div class="feature-card">
+                            <h3>1. Data Storage Structure</h3>
+                            <p>The system uses knowledge.json for storing text chunks with metadata and embeddings.pt for vector representations in PyTorch format.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>2. PDF Processing</h3>
+                            <p>Documents are extracted, chunked, and associated with metadata through the process_pdf() function for structured knowledge representation.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>3. Embedding Computation</h3>
+                            <p>Text chunks are transformed into 512-dimensional vector embeddings capturing semantic meaning for effective retrieval operations.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>4. Knowledge Extension</h3>
+                            <p>The system can incorporate new documents while preserving original data through careful copying and tensor concatenation operations.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>5. Web Knowledge Integration</h3>
+                            <p>Wikipedia articles are processed in manageable batches to enrich the knowledge base while maintaining memory efficiency.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>6. GPU-Accelerated Retrieval</h3>
+                            <p>Cosine similarity between query and chunk embeddings leverages GPU processing for fast and accurate information retrieval.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>7. Multi-Head Attention</h3>
+                            <p>The system employs 8-head self-attention mechanisms to learn multiple relationship patterns in parallel across text data.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>8. Feed-Forward Processing</h3>
+                            <p>A 2048-dimension feed-forward layer expands and compresses attention output for enhanced feature extraction capabilities.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>9. Tokenization Strategy</h3>
+                            <p>Word-level tokenization simplifies processing for short texts while frequency-based vocabulary truncation optimizes memory usage.</p>
+                        </div>
+                    </div>
+                    <div class="architecture-grid">
+                        <img src="./images/project1/rag_complete_working_diagram.png" class="architecture-image" alt="training results image" onclick="openModal(this)" alt="Training Results">
+                        <img src="./images/project1/rag_detail.png" class="architecture-image" alt="compiler output image" onclick="openModal(this)" alt="Compiler Output">
+                    </div>
+                </section>
+
+                <h3>"The RAG-enhanced ShortGPT model creates a perfect balance between fixed, trained knowledge and dynamic, document-based retrieval. This hybrid approach gives you the best of both worlds."</h3>
+                <h3>Coming soon: Advanced filtering capabilities and multi-modal document support!</h3>
+                <br>
+                <h3>"Experience the power of on-demand knowledge without sacrificing the performance of a finely-tuned model."</h3>
+                <section class="download-section">
+                    <a href="https://github.com/hemanthreddykunduru/mini_RAG" class="download-button">Try ShortGPT with RAG</a>
+                </section>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -361,6 +709,12 @@
                 modal.style.display = "none";
             }
         });
+
+    function toggleDropdown(contentId, button) {
+        const content = document.getElementById(contentId);
+        content.classList.toggle("show");
+        button.classList.toggle("active");
+    }
     </script>
 </body>
 </html>
